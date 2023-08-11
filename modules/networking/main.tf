@@ -215,21 +215,6 @@ resource "aws_lb_target_group" "datascientest_vms" {
   vpc_id   = "${aws_vpc.datascientest_vpc.id}"
 }
 
-## Joindre l' instance A à la zone de disponibilté A au groupe cible
-#resource "aws_lb_target_group_attachment" "datascientesta_tg_attachment" {
-#  target_group_arn = "${aws_lb_target_group.datascientest_vms.arn}"
-#  target_id =   var.datascientest_a_id
-#
-#  port             = 80
-#}
-
-## Joindre l' instance B à la zone de disponibilté B au groupe cible
-#resource "aws_lb_target_group_attachment" "datascientestb_tg_attachment" {
-#  target_group_arn = "${aws_lb_target_group.datascientest_vms.arn}"
-#  target_id =  var.datascientest_b_id
-#  port             = 80
-#  }
-
 resource "aws_autoscaling_attachment" "server_a_tg_attachment" {
   autoscaling_group_name = var.web_server_a_id
   lb_target_group_arn   = "${aws_lb_target_group.datascientest_vms.arn}"

@@ -21,7 +21,6 @@ module "networking" {
   datascientest_b_id = module.ec2.datascientest_b_id
   web_server_a_id = module.autoscaling.web_server_a_id
   web_server_b_id = module.autoscaling.web_server_b_id
-  #namespace = var.namespace
 }
 
 # appel du modules ec2
@@ -31,11 +30,6 @@ module "ec2" {
   app_subnet_b_id = module.networking.app_subnet_b_id
   sg_id           = module.security.sg_id
   ec2_key_name    = module.security.ec2_key_name
-  #namespace  = var.namespace
-  #vpc        = module.networking.vpc
-  #sg_pub_id  = module.networking.sg_pub_id
-  #sg_priv_id = module.networking.sg_priv_id
-  #key_name   = "Datascientest"
 }
 
 module "bastion" {
