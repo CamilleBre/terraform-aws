@@ -9,7 +9,6 @@ resource "aws_db_instance" "wordpressdb" {
  instance_class       = "db.t3.micro"
  username             = var.username
  password             = var.password
- parameter_group_name = "mydb.mysql5.7"
  skip_final_snapshot  = true
  vpc_security_group_ids= [var.sg_rds.id]
 }
